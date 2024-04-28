@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rslt sheet</title>
+    <style>
+        h1{
+            width: 70%;
+            height: 60px;
+            margin-top: 12px;
+            text-align: center;
+            color: green;
+            font-size: 50px;
+            font-weight: bold;
+            background-color: purple;
+            border-radius:8px 8px 8px 8px;
+            border: 5px dotted yellow;
+            margin-left:170px;
+
+          }
+       .one{
+            width:45%;
+            margin-left:60px;
+            float: left;
+            font-weight: bold;
+            color: palevioletred;
+           
+
+       }
+
+       #calculate{
+        background-color: blueviolet;
+        padding:5px;
+        color: white;
+        font-size: 1.5rem;
+        border: 5px dotted yellow;
+        border-radius:5px;
+       }
+       
+       table{
+        width: 50%;
+        text-align: center;
+        margin-left:130%;
+        margin-top:-45%;
+        
+     }
+     
+     table,th,td{
+            padding: 10px;
+            border: 2px solid blueviolet;
+            border-collapse: collapse;
+            margin-top: -250px;
+     }
+
+     h2{
+            width: 150%;
+            height: 60px;
+            margin-top: 85px;
+            text-align: center;
+            color: palevioletred;
+            font-size: 50px;
+            font-weight: bold;
+            background-color: green;
+            border-radius:8px 8px 8px 8px;
+            border: 5px dotted purple;
+            margin-left:130px;
+          }
+
+          .box{
+            width: 50%;
+            height: 50%;
+            position: relative;
+            margin-left:410px;
+            margin-top:-7px;
+            background-color: gray;
+            font-size: 20pt;
+            border: 5px solid purple;
+            border-radius:7px 7px 7px 7px;
+
+        }
+        .input{
+            position: absolute;
+            top: 5%;
+            width: 80%;
+            height: 20%;
+            text-align: center;
+            margin-left: 10%;
+            border:4px dotted palevioletred;
+            border-radius: 5px 5px 5px 5px;
+            
+        }
+       
+        
+    </style>
+</head>
+<body>
+    <h1> Grade Calculating </h1>
+    <from class="one">
+        <div class="a">
+            <label>Bangla:-</label>
+            <input type="number" placeholder="marks" id="booka">
+        </div>
+     <br>
+     
+
+     <div class="b">
+        <label>English:-</label>
+        <input type="number" placeholder="marks" id="bookb">
+    </div>
+    <br>
+    
+
+    <div class="c">
+        <label>Math:-</label>
+        <input type="number" placeholder="marks" id="bookc">
+    </div>
+    <br>
+    
+
+    <div class="d">
+        <label>Scince:-</label>
+        <input type="number" placeholder="marks" id="bookd">
+    </div>
+    <br>
+    
+
+    <div class="e">
+        <label>Islam:-</label>
+        <input type="number" placeholder="marks" id="booke">
+    </div>
+        <br>
+        <br>
+    
+        <button id="calculate" type="button" onclick="calculate()">Calculate</button>
+
+
+    </form>
+
+    
+    <div>
+        <table>
+            <tr>
+                <td>Total Marks</td>
+                <td>500</td>
+            </tr>
+
+            <tr>
+                <td>Obtained Marks</td>
+                <td id="obtain"></td>
+            </tr>
+
+            <tr>
+                <td>Percentage</td>
+                <td id="per"></td>
+            </tr>
+
+            <tr>
+                <td>Grade</td>
+                <td id="grade"></td>
+            </tr>
+
+            <tr>
+                <td>Remarks</td>
+                <td id="remarks"></td>
+            </tr>
+        </table>
+    </div>
+
+    <h2> Calculator </h2>
+
+    <div>
+        <div class="box">
+<input type="text" class="input" id="input">
+<br>
+<br>
+<div style="text-align: center;">
+
+        <button type="button" onclick="setinput('1')">1</button>
+        <button type="button" onclick="setinput('2')">2</button>
+        <button type="button" onclick="setinput('3')">3</button>
+        <button type="button" onclick="setinput('4')">4</button>
+        <button type="button" onclick="setinput('5')">5</button>
+</div>
+<div style="text-align: center;">
+         <button type="button" onclick="setinput('6')">6</button>  
+        <button type="button" onclick="setinput('7')">7</button>
+        <button type="button" onclick="setinput('8')">8</button>
+        <button type="button" onclick="setinput('9')">9</button>
+        <button type="button" onclick="setinput('0')">0</button>
+    </div>
+
+    <div style="text-align: center;">
+        <button type="button" onclick="setop('+')">+</button>
+        <button type="button" onclick="setop('-')">-</button>
+        <button type="button" onclick="setop('*')">*</button>
+        <button type="button" onclick="setop('/')">/</button>
+        <button type="button" onclick="calculation()">=</button>
+</div>
+<div style="text-align: center;">
+    <button type="button" onclick="setop('%')">%</button>
+    <button type="button" onclick="setop('.')">.</button>
+    <button type="button" onclick="cl()">clear</button>
+</div>
+    </div>
+</div>
+  <script>
+    function cal(){
+        document.getElementById('calculator').innerHTML = ' +';
+    }
+    function calculate(){
+        var a= parseInt(document.getElementById('booka').value);
+        var b= parseInt(document.getElementById('bookb').value);
+        var c= parseInt(document.getElementById('bookc').value);
+        var d= parseInt(document.getElementById('bookd').value);
+        var e= parseInt(document.getElementById('booke').value);
+
+        if(a>100 || b>100 || c>100 || d>100 || e>100 )
+        {
+            alert("Please enter the correct value");
+
+        }
+        else
+        {
+            var obtain= a+b+c+d+e;
+            document.getElementById("obtain").innerHTML= obtain;
+            var per= obtain/500*10;
+            document.getElementById("per").innerHTML= per;
+            if(a>40 && b>40 && c>40 && d>40 && e>40)
+            {
+
+                document.getElementById("remarks").innerHTML= "<span style= 'color:green'>Pass</span>";
+            }
+
+            else{
+                document.getElementById("remarks").innerHTML= "<span style= 'color:red'>Fail</span>";
+
+            }
+
+            if(obtain>=80){
+                document.getElementById("grade").textContent= "A+"
+            }
+           
+            else if(obtain>=70){
+                document.getElementById("grade").textContent= "A"
+            }
+            else if(obtain>=60){
+                document.getElementById("grade").textContent= "B"
+            }
+            else if(obtain>=50){
+                document.getElementById("grade").textContent= "C"
+            }
+            else if(obtain>=40){
+                document.getElementById("grade").textContent= "D"
+            }
+            else{
+                document.getElementById("grade").textContent= "F"
+            }
+            
+        
+            
+
+
+            return false;
+
+        }
+    }
+    
+
+    function setinput(x){
+    let i = document.getElementById('input');
+    i.value += x;
+}
+function setop(y){
+    let i = document.getElementById('input');
+    i.value += y;
+}
+function cl(){
+    let x ='';
+    document.getElementById('input').value = x;
+}
+
+function calculation(){
+
+    let x = document.getElementById('input');
+
+    let resuls = eval(x.value);
+
+    document.getElementById('input').value = resuls;
+}
+    
+
+
+  </script>  
+</body>
+</html>
